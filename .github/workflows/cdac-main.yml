@@ -1,19 +1,21 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright 2024 Canonical Ltd.
 
-name: Main workflow
+name: CDAC Main workflow
 
 on:
   pull_request:
     branches:
-      - main
+      - cdacmaster
   push:
     branches:
-      - main
+      - cdacmaster
+  workflow_dispatch:     
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.repository_owner == '5GC-DEV'
     steps:
       - uses: actions/checkout@v4
 
@@ -26,6 +28,7 @@ jobs:
 
   unit-tests:
     runs-on: ubuntu-latest
+    if: github.repository_owner == '5GC-DEV'
     steps:
       - uses: actions/checkout@v4
 
@@ -38,6 +41,7 @@ jobs:
   
   license-check:
     runs-on: ubuntu-latest
+    if: github.repository_owner == '5GC-DEV'
     steps:
       - uses: actions/checkout@v4
 
@@ -46,6 +50,7 @@ jobs:
 
   fossa-check:
     runs-on: ubuntu-latest
+    if: github.repository_owner == '5GC-DEV'
     steps:
       - uses: actions/checkout@v4
 
@@ -56,6 +61,7 @@ jobs:
   lint:
     name: lint
     runs-on: ubuntu-latest
+    if: github.repository_owner == '5GC-DEV'
     steps:
       - uses: actions/checkout@v4
 
