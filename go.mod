@@ -1,4 +1,4 @@
-module github.com/omec-project/config5g
+module github.com/anaswarac-dac/config5g-cdac
 
 go 1.21
 
